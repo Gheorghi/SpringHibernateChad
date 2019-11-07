@@ -20,8 +20,21 @@ public class SetterDemoApp {
 		System.out.println(theCoach.getEmailAddress());
 		System.out.println(theCoach.getTeam());
 		
+		CricketCoach alphaCoach= context.getBean("myCricketCoach", CricketCoach.class);
+
+		theCoach.getDailyFortune();
+		alphaCoach.getDailyWorkout();
+		
+		//check if the are the same
+		boolean result = (theCoach==alphaCoach);
+		
+		System.out.println("Print to the same object: "+ result);
+		System.out.println("Memory location for theCoach: "+ theCoach);
+		System.out.println("Memory location for alphaCoach: "+ alphaCoach);
+		
 		// close the context
 		context.close();
+		
 		
 	}
 
