@@ -13,9 +13,9 @@ public class TennisCoach implements Coach {
 	}
 
 	@Autowired
-	public void setTennisCoach(FortuneService theFortuneService) {
+	public void doSomeCrazyStaff(FortuneService theFortuneService) {
 		fortuneService = theFortuneService;
-		System.out.println(">> TennisCoach: inside setTennisCoach");
+		System.out.println(">> TennisCoach: inside doSomeCrazyStaff");
 	}
 
 	@Override
