@@ -10,4 +10,10 @@ public class PinpongCoach implements Coach {
 		return "5 hors per day is OK!!! Practice your backhand";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
