@@ -11,6 +11,8 @@
     	<property name="rootLoggerLevel" value="FINE" />
     	<property name="printedLoggerLevel" value="FINE"/>
     </bean>
+    
+    <context:property-placeholder location="fortune.properties"/>  
 
 	<!-- add entry to enable component scanning -->
 	<context:component-scan base-package="com.luv2code.springdemo"/>
