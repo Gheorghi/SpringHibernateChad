@@ -18,6 +18,7 @@ public class MyLoggerConfig {
 
 	@Value("${root.logger.level}")
 	private String rootLoggerLevel;
+	
 	@Value("${printed.logger.level}")
 	private String printedLoggerLevel;
 
