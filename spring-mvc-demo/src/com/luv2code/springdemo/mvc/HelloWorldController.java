@@ -1,12 +1,14 @@
 package com.luv2code.springdemo.mvc;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.HttpServletBean;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 
 import com.sun.net.httpserver.HttpServer;
 
@@ -31,7 +33,7 @@ public class HelloWorldController {
 	@RequestMapping("/processFormVertionTwo")
 	public String letsShoutDude(HttpServletRequest request, Model model) {
 		// read the request parametr from the HTML form
-		String theName = request.getParametr("studentName");
+		String theName = request.getParameter("studentName");
 		
 		//convert the data to all caps
 		theName = theName.toUpperCase();
