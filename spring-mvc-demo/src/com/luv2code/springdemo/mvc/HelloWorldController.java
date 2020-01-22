@@ -7,15 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-
-import com.sun.net.httpserver.HttpServer;
-
 @Controller
 public class HelloWorldController {
 	
-	//need a controller method to show the initial HTNL for
+	//need a controller method to show the initial HTML for
 	@RequestMapping("/showForm")
 	public String showForm() {
 		return "helloworld-form";
@@ -32,7 +27,7 @@ public class HelloWorldController {
 	
 	@RequestMapping("/processFormVertionTwo")
 	public String letsShoutDude(HttpServletRequest request, Model model) {
-		// read the request parametr from the HTML form
+		// read the request parameter from the HTML form
 		String theName = request.getParameter("studentName");
 		
 		//convert the data to all caps
