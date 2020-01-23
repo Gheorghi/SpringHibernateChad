@@ -22,6 +22,12 @@
 
 <a href="student/showForm">Student form</a>
 
+<br><br>
+
+<a href="customer/showForm">Customer form</a>
+
+<br><br>
+
 <!-- <img src="${pageContext.request.contextPath}/resources/images/spring-logo.png" />  -->
 <!-- <input type="button" onclick="doSomeWork()" value="Click Me"/> -->
 
