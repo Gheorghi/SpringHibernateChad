@@ -31,12 +31,20 @@ public class UpdateStudentDemo {
 			
 			Student myStudent = session.get(Student.class, studentId);
 			
-			//delete the student
-			System.out.println("Deleting student: " + myStudent);
-			session.delete(myStudent);
-
+			System.out.println("Updating student...");
+			myStudent.setFirstName("Scooby");
+			
 			//commit the transaction
 			session.getTransaction().commit();
+			
+			// NEW CODE
+			session=factory.getCurrentSession();
+			session.beginTransaction();
+			
+			//Update email for all students
+			System.out.println("Update email for all students");
+			
+			session.createQuery("Update Student set email = 'foo@gmail.com'").executeUpdate();
 			
 			System.out.println("Done!");
 		}
