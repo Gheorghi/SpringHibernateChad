@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 
-public class GetInstructorDetailDemo {
+public class DeleteInstructorDetailDemo {
 
 	public static void main(String[] args) {
 
@@ -23,7 +23,6 @@ public class GetInstructorDetailDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {			
-			
 			// start a transaction
 			session.beginTransaction();
 
@@ -37,6 +36,11 @@ public class GetInstructorDetailDemo {
 			// print the associated instructor
 			System.out.println("The assosciated instructor: "+ tempInstructorDetail.getInstructor());
 			
+			// now let's delete the instructor detail
+			System.out.println("Deleting tempInstructorDetail: " + tempInstructorDetail);
+			session.delete(tempInstructorDetail);
+			
+
 			// commit transaction
 			session.getTransaction().commit();
 			
