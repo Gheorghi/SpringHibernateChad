@@ -1,6 +1,13 @@
 package com.luv2code.hibernate.demo.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,11 +23,17 @@ public class Course {
 	//define toString
 	
 	//annotate fields
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
 	private int id;
 	
+	@Column
 	private String title;
 	
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.DETACH, 
+			CascadeType.MERGE, CascadeType.REFRESH})
+	@JoinColumn(name="instructor_id")
 	private Instructor instructor;
 	
 	public Course() {}
