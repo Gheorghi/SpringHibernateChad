@@ -55,7 +55,7 @@ public class Instructor {
 			mappedBy="instructor",
 			cascade= {CascadeType.PERSIST, CascadeType.DETACH, 
 					CascadeType.MERGE, CascadeType.REFRESH})
-	private List<Course> cources;
+	private List<Course> courses;
 	
 	public Instructor() {
 		
@@ -113,21 +113,21 @@ public class Instructor {
 				+ ", instructorDetail=" + instructorDetail + "]";
 	}
 	
-	public List<Course> getCources() {
-		return cources;
+	public List<Course> getCourses() {
+		return courses;
 	}
 
-	public void setCources(List<Course> cources) {
-		this.cources = cources;
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 	
 	// add convenience methods for bi-directional relationship
 	
 	public void add(Course tempCourse) {
-		if(cources == null) {
-			cources =new ArrayList<>();
+		if(courses == null) {
+			courses =new ArrayList<>();
 		}
-		cources.add(tempCourse);
+		courses.add(tempCourse);
 		tempCourse.setInstructor(this);
 	}
 	
