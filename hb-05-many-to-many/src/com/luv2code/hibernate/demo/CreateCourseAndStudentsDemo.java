@@ -17,8 +17,8 @@ public class CreateCourseAndStudentsDemo {
 		// create session factory
 		SessionFactory factory = new Configuration()
 								.configure("hibernate.cfg.xml")
-								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Instructor.class)
+								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
 								.addAnnotatedClass(Review.class)
 								.addAnnotatedClass(Student.class)
@@ -40,17 +40,17 @@ public class CreateCourseAndStudentsDemo {
 			System.out.println("Saved the course: " + tempCourse);
 			
 			// create the students
-			Student tenStudent1 = new Student("John","Doe", "john@luv2code.com");
-			Student tenStudent2 = new Student("Mary","Public", "mary@luv2code.com");
+			Student tempStudent1 = new Student("John","Doe", "john@luv2code.com");
+			Student tempStudent2 = new Student("Mary","Public", "mary@luv2code.com");
 			
 			// add students to the course
-			tempCourse.addStudent(tenStudent1);
-			tempCourse.addStudent(tenStudent2);
+			tempCourse.addStudent(tempStudent1);
+			tempCourse.addStudent(tempStudent2);
 			
 			// save the students
 			System.out.println("Sasving Students...");
-			session.save(tenStudent1);
-			session.save(tenStudent2);
+			session.save(tempStudent1);
+			session.save(tempStudent2);
 			System.out.println("Saved student: " +tempCourse.getStudents());
 			
 			// commit transaction
