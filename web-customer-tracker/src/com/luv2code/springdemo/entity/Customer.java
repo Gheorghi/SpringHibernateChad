@@ -16,14 +16,18 @@ public class Customer {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="firstName")
+	@Column(name="first_name")
 	private String firstName; 
 	
-	@Column(name="lastName")
+	@Column(name="last_name")
 	private String lastName;
 	
 	@Column(name="email")
 	private String email;
+	
+	public Customer() {
+		
+	}
 
 	public int getId() {
 		return id;
