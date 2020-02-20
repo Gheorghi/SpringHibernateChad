@@ -1,9 +1,7 @@
 package com.luv2code.aopdemo.aspect;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +13,5 @@ public class MyDemoLoggingAspect {
 	@Before("com.luv2code.aopdemo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()") // excluding getters and setters
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on method\n");
-	
 	}
 }
