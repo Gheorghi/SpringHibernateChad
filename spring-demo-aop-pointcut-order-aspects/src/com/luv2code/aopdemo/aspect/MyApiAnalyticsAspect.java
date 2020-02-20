@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyApiAnalyticsAspect {
 	
-	@Before("forDaoPackageNoGetterSetter()") // excluding getters and setters
+	@Before("com.luv2code.aopdemo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()") // excluding getters and setters
 	public void performApiAnalytics() {
 		System.out.println("\\n======>>> Performing API analytics");
 	}
