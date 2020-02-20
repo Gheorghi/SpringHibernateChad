@@ -13,8 +13,14 @@ import org.springframework.stereotype.Component;
 public class MyDemoLoggingAspect {
 
 	@Before("com.luv2code.aopdemo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()") // excluding getters and setters
-	public void beforeAddAccountAdvice() {
+	public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
 		System.out.println("\n======>>> Executing @Before advice on method\n");
-	
+		
+		// display the method signature
+		MethodSignature methodSig = (MethodSignature) theJoinPoint.getSignature();
+		
+		System.out.println("Method: "+methodSig);
+		
+		// display method arguments
 	}
 }
