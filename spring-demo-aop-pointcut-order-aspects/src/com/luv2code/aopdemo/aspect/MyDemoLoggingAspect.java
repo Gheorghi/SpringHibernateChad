@@ -12,6 +12,6 @@ public class MyDemoLoggingAspect {
 
 	@Before("com.luv2code.aopdemo.aspect.LuvAopExpressions.forDaoPackageNoGetterSetter()") // excluding getters and setters
 	public void beforeAddAccountAdvice() {
-		System.out.println("\n======>>> Executing @Before advice on method");
+		System.out.println("\n======>>> Executing @Before advice on method\n");
 	}
 }
