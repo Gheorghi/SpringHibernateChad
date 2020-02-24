@@ -18,10 +18,17 @@ public class AfterThrowingDemoApp {
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 
 		// call method to find the accounts
-		List<Account> theAccounts = theAccountDAO.findAccounts();
+		List<Account> theAccounts = null;
+		
+		try {
+			theAccounts = theAccountDAO.findAccounts();
+		}catch (Exception exc) {
+			System.out.println("\n\n\Main Program ... caught exception: " + exc);
+			// TODO: handle exception
+		}
 		
 		// display the accounts
-		System.out.println("\n\nMain Program: AfterReturningDemoApp");
+		System.out.println("\n\nMain Program: AfterThrowingDemoApp");
 		System.out.println("----");
 		
 		System.out.println(theAccounts);
