@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -17,7 +18,16 @@ import com.luv2code.aopdemo.Account;
 @Order(2)
 public class MyDemoLoggingAspect {
 
-	// add a new advice for @AfterReturning on the findAccounts method
+	@AfterThrowing(pointcut = "execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))", throwing = "theExc")
+	public void afterThrowingFindAccountsAdvice(JoinPoint theJoinPoint, Throwable theExc) {
+		// print out which method we are advising on
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n=====>>> Executing @AfterThrowing on mehtod" + method);
+		
+		// log the exception 
+		System.out.println("\n=====>>> The exception is: " + theExc);
+		
+	}
 
 	@AfterReturning(pointcut = "execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))", returning = "result")
 	public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> result) {
@@ -28,23 +38,23 @@ public class MyDemoLoggingAspect {
 
 		// print out the results of the method call
 		System.out.println("\n====>>> result is: " + result);
-		
-		//let's post-process the data ... let's modify it :-)
-		
+
+		// let's post-process the data ... let's modify it :-)
+
 		// convert the account names to uppercase
 		convertAccountNamesToUpperCase(result);
-		
+
 		System.out.println("\n====>>> result is: " + result);
 	}
 
 	private void convertAccountNamesToUpperCase(List<Account> result) {
-		
+
 		// loop through accounts
-		for (Account tempAccount : result){
+		for (Account tempAccount : result) {
 
 			// get uppercase versions of name
 			String theUpperName = tempAccount.getName().toUpperCase();
-			
+
 			// update the name on the account
 			tempAccount.setName(theUpperName);
 		}
