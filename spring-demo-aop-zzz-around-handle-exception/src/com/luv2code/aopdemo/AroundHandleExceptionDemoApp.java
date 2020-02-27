@@ -6,9 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.luv2code.aopdemo.service.TrafficFortuneService;
 
-public class AroundWithLoggerDemoApp {
+public class AroundHandleExceptionDemoApp {
 	
-	private static Logger myLogger = Logger.getLogger(AroundWithLoggerDemoApp.class.getName());
+	private static Logger myLogger = Logger.getLogger(AroundHandleExceptionDemoApp.class.getName());
 	
 	public static void main(String[] args) {
 
@@ -22,8 +22,7 @@ public class AroundWithLoggerDemoApp {
 		
 		myLogger.info("Calling getFortune");
 		
-		boolean tripWire = true;
-		String data = theFortuneService.getFortune(tripWire);
+		String data = theFortuneService.getFortune();
 		
 		myLogger.info("\nMy Fortune is: "+data);
 		
