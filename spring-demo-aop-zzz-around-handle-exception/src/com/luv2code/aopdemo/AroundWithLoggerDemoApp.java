@@ -22,8 +22,7 @@ public class AroundWithLoggerDemoApp {
 		
 		myLogger.info("Calling getFortune");
 		
-		boolean tripWire = true;
-		String data = theFortuneService.getFortune(tripWire);
+		String data = theFortuneService.getFortune();
 		
 		myLogger.info("\nMy Fortune is: "+data);
 		
