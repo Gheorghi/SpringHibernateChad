@@ -19,6 +19,15 @@
   </properties>
 
   <dependencies>
+  
+  <!-- Add support for Hibernate: hibernate-core -->
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+ 		<artifactId>hibernate-tools-maven-plugin</artifactId>
+ 		<version>5.4.12.Final</version>
+  		<type>maven-plugin</type>
+	</dependency>
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
