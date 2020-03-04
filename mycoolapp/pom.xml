@@ -20,6 +20,15 @@
 
   <dependencies>
   
+  <!-- Add support Atlassian Mail: atlassian-mail -->
+	<!-- https://mvnrepository.com/artifact/com.atlassian.mail/atlassian-mail -->
+	<dependency>
+    	<groupId>com.atlassian.mail</groupId>
+    	<artifactId>atlassian-mail</artifactId>
+   	 <version>5.0.1</version>
+	</dependency>
+  
+  
   <!-- Add support for Hibernate: hibernate-core -->
   	<dependency>
   		<groupId>org.hibernate</groupId>
@@ -35,4 +44,15 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+<repositories>
+	<repository>
+		<id>atlassian</id>
+		<name>the atlassian repo</name>
+		<url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+	</repository>
+</repositories>
+
 </project>
+
+
