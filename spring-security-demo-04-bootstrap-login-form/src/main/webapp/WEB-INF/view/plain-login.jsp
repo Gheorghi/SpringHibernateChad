@@ -14,8 +14,8 @@
 <h3>My Custom Login Page</h3>
 	<form:form action="${pageContext.request.contextPath}/authenticateTheUser"
 	method="POST">
-	<!-- Check for error -->
 	
+	<!-- Check for error -->
 	<c:if test="${param.error != null }">
 		<i class="failed">Sorry! You entered invalid username/password.</i>
 	</c:if>
