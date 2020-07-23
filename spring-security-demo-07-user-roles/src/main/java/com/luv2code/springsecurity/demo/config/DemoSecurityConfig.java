@@ -38,8 +38,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		.loginProcessingUrl("/authenticateTheUser")
 		.permitAll()
 	.and() // logOut support starts here
-	.logout().permitAll();
-		
+	.logout().permitAll()
+	.and()
+	.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
 }
