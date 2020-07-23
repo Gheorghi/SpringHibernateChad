@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>luv2code Leaders Home Page</title>
+<title>luv2code LEADERS Home Page</title>
 </head>
 <body>
 <h2>luv2code LEADERS Home Page</h2>
@@ -10,6 +10,6 @@
 		Keep this a secret, don't tell the regular employees LOL :-)	
 </p>
 <hr>
-<a href="$pageContext.request.contextPath/">Back to Home Page</a>
+<a href="${pageContext.request.contextPath}/">Back to Home Page</a>
 </body>
 </html>
