@@ -47,11 +47,11 @@ public class DemoAppConfig {
 	public DataSource securityDataSource() {
 
 		// create connection pool
-		ComboPooledDataSource securDataSource = new ComboPooledDataSource();
+		ComboPooledDataSource securityDataSource = new ComboPooledDataSource();
 
 		// set the jdbs driver class
 		try {
-			securDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+			securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		} catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}
@@ -61,9 +61,30 @@ public class DemoAppConfig {
 		logger.info(">>> jdbc.user=" + env.getProperty("jdbc.user"));
 
 		// set database connection props
-
+		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		securityDataSource.setUser(env.getProperty("jdbc.user"));
+		securityDataSource.setUser(env.getProperty("jdbc.password"));
+		
 		// set connection pool props
+		
+		securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
+		securityDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
+		securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
+		securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
 
-		return securDataSource;
+		return securityDataSource;
+	}
+	
+	// need a helper method
+	// read environment property and convert to int
+	
+	private int getIntProperty(String propName) {
+		
+		String propVal = env.getProperty(propName);
+		
+		//now convert to int
+		int intPropVal = Integer.parseInt(propVal);
+		
+		return intPropVal;
 	}
 }
