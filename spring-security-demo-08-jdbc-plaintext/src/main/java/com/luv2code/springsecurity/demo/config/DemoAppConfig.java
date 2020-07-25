@@ -1,6 +1,6 @@
 package com.luv2code.springsecurity.demo.config;
 
-
+import java.beans.PropertyVetoException;
 import java.util.logging.Logger;
 
 import javax.sql.DataSource;
@@ -15,45 +15,55 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="com.luv2code.springsecurity.demo")
+@ComponentScan(basePackages = "com.luv2code.springsecurity.demo")
 @PropertySource("classpath:persistence-mysql.properties")
 public class DemoAppConfig {
-	
+
 	// set up variable to hold the properies
-	
+
 	@Autowired
 	private Environment env;
-	
+
 	// setup a logger for diagnostics
 	private Logger logger = Logger.getLogger(getClass().getName());
-	
+
 	// define a bean for ViewResolver
-	@Bean 
+	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		
+
 		viewResolver.setPrefix("/WEB-INF/view/");
 		viewResolver.setSuffix(".jsp");
-		
+
 		return viewResolver;
 	}
-	
-	// define a bean for our security datasource 
+
+	// define a bean for our security datasource
 	@Bean
 	public DataSource securityDataSource() {
-		
+
 		// create connection pool
-		
+		ComboPooledDataSource securDataSource = new ComboPooledDataSource();
+
 		// set the jdbs driver class
-		
+		try {
+			securDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+		} catch (PropertyVetoException exc) {
+			throw new RuntimeException(exc);
+		}
+
 		// log the connection props
-		
+		logger.info(">>> jdbc.url=" + env.getProperty("jdbc.url"));
+		logger.info(">>> jdbc.user=" + env.getProperty("jdbc.user"));
+
 		// set database connection props
-		
+
 		// set connection pool props
-		
-		return null;
+
+		return securDataSource;
 	}
 }
