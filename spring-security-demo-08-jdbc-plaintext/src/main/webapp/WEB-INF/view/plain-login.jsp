@@ -6,7 +6,9 @@
 	<title>Custom Login Page</title>
 	
 	<style>
-		.failed{color: red;}
+		.failed {
+			color: red;
+		}
 	</style>
 </head>
 
@@ -15,21 +17,24 @@
 	<form:form action="${pageContext.request.contextPath}/authenticateTheUser"
 	method="POST">
 	
-	<!-- Check for error -->
-	<c:if test="${param.error != null }">
-		<i class="failed">Sorry! You entered invalid username/password.</i>
-	</c:if>
+		<!-- Check for login error -->
 	
-	<p>
-	User name: <input type="text" name="username" />
-	</p>
-	
-	<p>
-	Password: <input type="password" name="password" />
-	</p>
-	
-	<input type="submit" value="Login" />
-	
+		<c:if test="${param.error != null}">
+		
+			<i class="failed">Sorry! You entered invalid username/password.</i>
+			
+		</c:if>
+			
+		<p>
+			User name: <input type="text" name="username" />
+		</p>
+
+		<p>
+			Password: <input type="password" name="password" />
+		</p>
+		
+		<input type="submit" value="Login" />
+		
 	</form:form>
 
 </body>

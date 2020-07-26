@@ -90,8 +90,9 @@
 						
 						<!-- I'm manually adding tokens... Bro! -->
 						<input type="hidden"
-						name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
+							   name="${_csrf.parameterName}"
+							   value="${_csrf.token}" />
+						
 					</form>
 
 				</div>

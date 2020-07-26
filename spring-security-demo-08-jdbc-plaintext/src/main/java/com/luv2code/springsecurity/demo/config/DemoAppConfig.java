@@ -47,9 +47,11 @@ public class DemoAppConfig {
 	public DataSource securityDataSource() {
 
 		// create connection pool
-		ComboPooledDataSource securityDataSource = new ComboPooledDataSource();
-
-		// set the jdbs driver class
+		ComboPooledDataSource securityDataSource
+									= new ComboPooledDataSource();
+				
+		// set the jdbc driver class
+		
 		try {
 			securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		} catch (PropertyVetoException exc) {
@@ -63,15 +65,22 @@ public class DemoAppConfig {
 		// set database connection props
 		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
 		securityDataSource.setUser(env.getProperty("jdbc.user"));
-		securityDataSource.setUser(env.getProperty("jdbc.password"));
+		securityDataSource.setPassword(env.getProperty("jdbc.password"));
 		
 		// set connection pool props
 		
-		securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
-		securityDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
-		securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
-		securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
+		securityDataSource.setInitialPoolSize(
+				getIntProperty("connection.pool.initialPoolSize"));
 
+		securityDataSource.setMinPoolSize(
+				getIntProperty("connection.pool.minPoolSize"));
+
+		securityDataSource.setMaxPoolSize(
+				getIntProperty("connection.pool.maxPoolSize"));
+
+		securityDataSource.setMaxIdleTime(
+				getIntProperty("connection.pool.maxIdleTime"));
+		
 		return securityDataSource;
 	}
 	

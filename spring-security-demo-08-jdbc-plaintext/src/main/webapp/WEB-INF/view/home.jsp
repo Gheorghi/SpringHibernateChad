@@ -20,7 +20,6 @@
 	<br><br>
 	Role(s): <security:authentication property="principal.authorities"/>
 	</p>
-	<hr>
 	
 	<security:authorize access="hasRole('MANAGER')">
 	
@@ -39,7 +38,10 @@
 		(Only for Admin peeps)
 	</p>
 	</security:authorize>
-		
+	
+	<hr>
+	
+	
 	<!-- Add a logout button -->
 	<form:form action="${pageContext.request.contextPath}/logout" 
 			method="POST">
