@@ -18,40 +18,25 @@ public class CustomerRestController {
 	// autowire the CustomerService
 	@Autowired
 	private CustomerService customerService;
-	
+
 	// add mapping for GET /customers
 	@GetMapping("/customers")
 	public List<Customer> getCustomers() {
-		
+
 		return customerService.getCustomers();
-		
+
 	}
-	
+
 	// add mapping for GET /customers/{customerId}
 	@GetMapping("/customers/{customerId}")
-	public Customer getCustomers(@PathVariable int customerId) {
+	public Customer getCustomer(@PathVariable int customerId) {
 		
-		return customerService.getCustomer(customerId);
-		
+		Customer theCustomer = customerService.getCustomer(customerId);
+
+		if (theCustomer == null) {
+			throw new CustomerNotFoundException("Customer id not found - " + customerId);
+		}
+		return theCustomer;
 	}
-		
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
