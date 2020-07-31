@@ -31,8 +31,8 @@ public class CustomerRestController {
 
 	// add mapping for GET /customers/{customerId}
 	@GetMapping("/customers/{customerId}")
-	public Customer getCustomers(@PathVariable int customerId) {
-
+	public Customer getCustomer(@PathVariable int customerId) {
+		
 		Customer theCustomer = customerService.getCustomer(customerId);
 
 		if (theCustomer == null) {
@@ -40,13 +40,14 @@ public class CustomerRestController {
 		}
 		return theCustomer;
 	}
-	// add mapping for POST /sutomers -add new customer
+
+	// add mapping for POST /customers  - add new customer
 	
-	@PostMapping("/customrs")
-	public Customer addCustomer(@RequestBody Customer theCustomer ) {
+	@PostMapping("/customers")
+	public Customer addCustomer(@RequestBody Customer theCustomer) {
 		
-		// also just in case the pass in id JSON... set id to 0
-		// this is forse a savr of new item ... instead of update
+		// also just in case the pass an id in JSON ... set id to 0
+		// this is force a save of new item ... instead of update
 		
 		theCustomer.setId(0);
 		
