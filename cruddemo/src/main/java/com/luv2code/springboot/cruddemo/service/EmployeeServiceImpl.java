@@ -15,8 +15,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDAO employeeDAO;
 	
 	@Autowired
-	public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
-		this.employeeDAO = employeeDAO;
+	public EmployeeServiceImpl(EmployeeDAO theEmployeeDAO) {
+		employeeDAO = theEmployeeDAO;
 	}
 
 	@Override
@@ -38,6 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+	@Transactional
 	public void deleteById(int theId) {
 		employeeDAO.deleteById(theId);
 	}
