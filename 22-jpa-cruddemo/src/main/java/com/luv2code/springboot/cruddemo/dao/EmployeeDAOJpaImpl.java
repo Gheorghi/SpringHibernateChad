@@ -17,7 +17,7 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
 	private EntityManager entityManager;
 
 	@Autowired
-	public EmployeeDAOJpaImpl(@Qualifier("employeeDAOJpaImpl") EntityManager entityManager) {
+	public EmployeeDAOJpaImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
